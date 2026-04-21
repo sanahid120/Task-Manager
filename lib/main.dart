@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/homepage.dart';
+import 'package:task_manager/screens/homepage.dart';
 import 'package:task_manager/screens/splash_screen.dart';
 
 void main() {
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Task Manager',
       theme: ThemeData(
 
