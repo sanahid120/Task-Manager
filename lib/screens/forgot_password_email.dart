@@ -1,22 +1,21 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/screens/forgot_password_email.dart';
-import 'package:task_manager/screens/signup_screen.dart';
+import 'package:task_manager/screens/pin_verfication.dart';
+import 'package:task_manager/screens/signin_screen.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
-  static const String name = 'SignInScreen';
+class ForgotPasswordEmail extends StatelessWidget {
+  const ForgotPasswordEmail({super.key});
+
+
+  static const String name = 'ForgotPasswordEmailScreen';
 
   @override
   Widget build(BuildContext context) {
-    void onSignUpButton() {
-      Navigator.pushReplacementNamed(context, SignUp_Screen.name);
+    void onVerifyButton() {
+      Navigator.pushNamed(context, PinVerfication.name);
     }
-
-    void onSignInButton() {}
-
-    void onForgotPasswordButton() {
-      Navigator.pushNamed(context, ForgotPasswordEmail.name);
+    void onSignInButton() {
+      Navigator.pushReplacementNamed(context, SignInScreen.name);
     }
     return Scaffold(
       backgroundColor: Colors.white,
@@ -30,14 +29,13 @@ class SignInScreen extends StatelessWidget {
             children: [
               SizedBox(height: 50),
               Text(
-                'Get Started With',
-                style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                ),
+                'Your Email Address',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+
+                )
               ),
+
+              Text('a 6 digit pin will send to your email address',style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey),),
               SizedBox(height: 10),
 
               TextFormField(
@@ -56,51 +54,30 @@ class SignInScreen extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                 ),
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.green),
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 16,
-                  ),
-                ),
 
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
+
               ElevatedButton(onPressed: () {
-                onSignInButton();
-              }, child: Text('login')),
+                onVerifyButton();
+              }, child: Text('verify')),
               SizedBox(height: 24),
               Center(
                 child: Column(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        onForgotPasswordButton();
-                      },
-                      child: Text('Forgot Password?'),
-                    ),
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.normal,
                         ),
-                        text: 'Don\'t you have an account? ',
+                        text: 'Already have an account? ',
                         children: [
                           TextSpan(
                             style: TextStyle(color: Colors.green,
                                 fontWeight: FontWeight.bold),
-                            text: 'SignUp',
+                            text: 'SignIn',
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                onSignUpButton();
+                                onSignInButton();
                               },
                           ),
                         ],
@@ -115,6 +92,7 @@ class SignInScreen extends StatelessWidget {
       ),
     );
   }
+
 
 
 

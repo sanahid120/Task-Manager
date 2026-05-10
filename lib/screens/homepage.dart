@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
+  static const String name = 'HomepageScreen';
 
   @override
   State<Homepage> createState() => _HomepageState();

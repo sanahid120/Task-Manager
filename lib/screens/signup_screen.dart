@@ -1,23 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/screens/forgot_password_email.dart';
-import 'package:task_manager/screens/signup_screen.dart';
+import 'package:task_manager/screens/signin_screen.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
-  static const String name = 'SignInScreen';
+class SignUp_Screen extends StatelessWidget {
+  const SignUp_Screen({super.key});
+  static const String name = 'SignUpScreen';
 
   @override
   Widget build(BuildContext context) {
-    void onSignUpButton() {
-      Navigator.pushReplacementNamed(context, SignUp_Screen.name);
+    void onSignInButton() {
+      Navigator.pushReplacementNamed(context, SignInScreen.name);
     }
 
-    void onSignInButton() {}
-
-    void onForgotPasswordButton() {
-      Navigator.pushNamed(context, ForgotPasswordEmail.name);
-    }
+    void onSignUpButton() {}
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -30,7 +25,7 @@ class SignInScreen extends StatelessWidget {
             children: [
               SizedBox(height: 50),
               Text(
-                'Get Started With',
+                'Join With Us',
                 style: TextStyle(
                   color: Colors.green,
                   fontSize: 24,
@@ -58,8 +53,7 @@ class SignInScreen extends StatelessWidget {
               ),
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.green),
+                  labelText: 'First Name',
                   hintStyle: TextStyle(
                     color: Colors.grey,
                     fontStyle: FontStyle.italic,
@@ -73,34 +67,65 @@ class SignInScreen extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                 ),
               ),
-              ElevatedButton(onPressed: () {
-                onSignInButton();
-              }, child: Text('login')),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Last Name',
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                  ),
+                ),
+
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Passsword',
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                  ),
+                ),
+
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  onSignUpButton();
+                },
+                child: Text('Register'),
+              ),
               SizedBox(height: 24),
               Center(
                 child: Column(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        onForgotPasswordButton();
-                      },
-                      child: Text('Forgot Password?'),
-                    ),
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.normal,
                         ),
-                        text: 'Don\'t you have an account? ',
+                        text: 'Already have an account? ',
                         children: [
                           TextSpan(
-                            style: TextStyle(color: Colors.green,
-                                fontWeight: FontWeight.bold),
-                            text: 'SignUp',
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            text: 'SignIn',
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                onSignUpButton();
+                                onSignInButton();
                               },
                           ),
                         ],
@@ -115,7 +140,4 @@ class SignInScreen extends StatelessWidget {
       ),
     );
   }
-
-
-
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/signin_screen.dart';
 import 'package:task_manager/utils/asset_paths.dart';
 
 import 'homepage.dart';
@@ -7,6 +8,7 @@ class SplashScreen extends StatefulWidget {
 
 
   const SplashScreen({super.key});
+
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -23,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future <void> nextScreen() async{
     await Future.delayed(Duration(seconds:2 ));
-    Navigator.pushReplacementNamed(context,'/homepage');
+    Navigator.pushReplacementNamed(context,SignInScreen.name);
   }
 
   @override
