@@ -1,29 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/screens/forgot_password_email.dart';
-import 'package:task_manager/screens/homepage.dart';
-import 'package:task_manager/screens/signup_screen.dart';
+import 'package:task_manager/screens/signin_screen.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
-  static const String name = 'SignInScreen';
-
+class SetNewPassword extends StatelessWidget {
+  const SetNewPassword({super.key});
+  static const String name  = 'SetNewPassword';
   @override
   Widget build(BuildContext context) {
-    void onSignUpButton() {
-      Navigator.pushReplacementNamed(context, SignUp_Screen.name);
-    }
-
     void onSignInButton() {
-      Navigator.pushNamedAndRemoveUntil(context, Homepage.name, (predicate)=>false);
+      Navigator.pushNamedAndRemoveUntil(context, SignInScreen.name, (predicate)=>false);
     }
+    void onConfirmButton() {
 
-    void onForgotPasswordButton() {
-      Navigator.pushNamed(context, ForgotPasswordEmail.name);
     }
     return Scaffold(
-      backgroundColor: Colors.white,
-
       body: SafeArea(
         child: Padding(
           padding: EdgeInsetsGeometry.all(24),
@@ -33,7 +23,7 @@ class SignInScreen extends StatelessWidget {
             children: [
               SizedBox(height: 50),
               Text(
-                'Get Started With',
+                'Set New Password',
                 style: TextStyle(
                   color: Colors.green,
                   fontSize: 24,
@@ -41,16 +31,13 @@ class SignInScreen extends StatelessWidget {
                   fontStyle: FontStyle.italic,
                 ),
               ),
+              Text('your password must contain least 6 digits numbers or special characters',style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey),),
               SizedBox(height: 10),
 
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Email',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 16,
-                  ),
+                  labelText: 'New Password',
+
                 ),
 
                 style: TextStyle(
@@ -61,13 +48,9 @@ class SignInScreen extends StatelessWidget {
               ),
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: 'Confirm Password',
                   labelStyle: TextStyle(color: Colors.green),
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 16,
-                  ),
+
                 ),
 
                 style: TextStyle(
@@ -77,33 +60,28 @@ class SignInScreen extends StatelessWidget {
                 ),
               ),
               ElevatedButton(onPressed: () {
-                onSignInButton();
-              }, child: Text('login')),
+                onConfirmButton();
+              }, child: Text('confirm')),
               SizedBox(height: 24),
               Center(
                 child: Column(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        onForgotPasswordButton();
-                      },
-                      child: Text('Forgot Password?'),
-                    ),
+
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.normal,
                         ),
-                        text: 'Don\'t you have an account? ',
+                        text: 'Already have an account? ',
                         children: [
                           TextSpan(
                             style: TextStyle(color: Colors.green,
                                 fontWeight: FontWeight.bold),
-                            text: 'SignUp',
+                            text: 'Sign In',
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                onSignUpButton();
+                                onSignInButton();
                               },
                           ),
                         ],
@@ -118,7 +96,6 @@ class SignInScreen extends StatelessWidget {
       ),
     );
   }
-
 
 
 }

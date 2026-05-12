@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/screens/forgot_password_email.dart';
 import 'package:task_manager/screens/homepage.dart';
 import 'package:task_manager/screens/pin_verfication.dart';
+import 'package:task_manager/screens/set_new_password.dart';
 import 'package:task_manager/screens/signin_screen.dart';
 import 'package:task_manager/screens/signup_screen.dart';
 import 'package:task_manager/screens/splash_screen.dart';
@@ -72,6 +73,7 @@ class MyApp extends StatelessWidget {
         SignUp_Screen.name: (context) => SignUp_Screen(),
         ForgotPasswordEmail.name: (context) => ForgotPasswordEmail(),
         PinVerfication.name: (context) => PinVerfication(),
+        SetNewPassword.name: (context) => SetNewPassword(),
 
       },
       home: SplashScreen(),
