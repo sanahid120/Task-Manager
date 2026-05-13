@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/add_new_task.dart';
 import 'package:task_manager/screens/forgot_password_email.dart';
 import 'package:task_manager/screens/homepage.dart';
 import 'package:task_manager/screens/pin_verfication.dart';
@@ -8,6 +9,7 @@ import 'package:task_manager/screens/set_new_password.dart';
 import 'package:task_manager/screens/signin_screen.dart';
 import 'package:task_manager/screens/signup_screen.dart';
 import 'package:task_manager/screens/splash_screen.dart';
+import 'package:task_manager/screens/update_profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,7 +47,10 @@ class MyApp extends StatelessWidget {
           ),
           labelStyle: TextStyle(
             color: Colors.green,
-                fontSize: 16
+                fontSize: 16,
+            overflow: TextOverflow.ellipsis,
+
+
           ),
           fillColor: Colors.white,
 
@@ -74,6 +79,8 @@ class MyApp extends StatelessWidget {
         ForgotPasswordEmail.name: (context) => ForgotPasswordEmail(),
         PinVerfication.name: (context) => PinVerfication(),
         SetNewPassword.name: (context) => SetNewPassword(),
+        AddNewTask.name: (context) => AddNewTask(),
+        UpdateProfile.name: (context) => UpdateProfile(),
 
       },
       home: SplashScreen(),

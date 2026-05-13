@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/update_profile.dart';
 
 
 class AppbarWidget extends StatelessWidget implements PreferredSizeWidget  {
@@ -8,12 +9,17 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget  {
 
   @override
   Widget build(BuildContext context) {
+
     return AppBar(
+
       title: Row(
         spacing: 5,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          GestureDetector(child: CircleAvatar(backgroundColor: Colors.white)),
+          InkWell(
+
+            onTap: (){Navigator.pushNamed(context, UpdateProfile.name);} ,
+            child: CircleAvatar(backgroundColor: Colors.white)),
           Column(
 
             mainAxisAlignment: MainAxisAlignment.center,
@@ -41,4 +47,8 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget  {
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
+
+
+
+
 }

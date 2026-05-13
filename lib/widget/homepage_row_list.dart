@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/add_new_task.dart';
 
 class HomepageLists extends StatelessWidget {
   const HomepageLists({super.key});
@@ -92,7 +93,9 @@ class HomepageLists extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, AddNewTask.name);
+        },
         foregroundColor: Colors.black,
 
         child: Icon(Icons.add_outlined),
