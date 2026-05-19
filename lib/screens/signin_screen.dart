@@ -28,6 +28,7 @@ class _SignInScreenState extends State<SignInScreen> {
     passwordController.dispose();
     super.dispose();
   }
+
   void onSignUpButton() {
     Navigator.pushNamed(context, SignUp_Screen.name);
   }
@@ -47,13 +48,12 @@ class _SignInScreenState extends State<SignInScreen> {
     if (response.isSuccess) {
       UserModel userModel = UserModel.fromJson(response.body['data']);
       String accessToken = response.body['token'];
-      await AuthControllers.saveUserData(accessToken,userModel);
-
+      await AuthControllers.saveUserData(accessToken, userModel);
 
       Navigator.pushNamedAndRemoveUntil(
         context,
         Homepage.name,
-            (predicate) => false,
+        (predicate) => false,
       );
       dispose();
     } else {
@@ -68,23 +68,14 @@ class _SignInScreenState extends State<SignInScreen> {
   void onSignInButton() {
     if (signInFormKey.currentState!.validate()) {}
     signIn();
-
   }
-
 
   void onForgotPasswordButton() {
     Navigator.pushNamed(context, ForgotPasswordEmail.name);
   }
+
   @override
   Widget build(BuildContext context) {
-
-
-
-
-
-
-
-
     return Scaffold(
       backgroundColor: Colors.white,
 

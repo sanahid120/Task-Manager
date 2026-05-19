@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds:2 ));
     bool isLogin = await AuthControllers.isUserLoggedin();
     if(isLogin){
-      await AuthControllers.getUserData();
+      AuthControllers.getUserData();
       Navigator.pushReplacementNamed(context,Homepage.name);
     }
     else{

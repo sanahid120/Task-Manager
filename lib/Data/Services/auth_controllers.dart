@@ -36,8 +36,8 @@ class AuthControllers {
     return token!=null;
   }
 
-  static Future<bool> logOut() async {
+  static Future<void> logOut() async {
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-return sharedPreferences.clear();
+     sharedPreferences.clear();
   }
 }
