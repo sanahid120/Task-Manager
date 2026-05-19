@@ -110,6 +110,22 @@ class _UpdateProfileState extends State<UpdateProfile> {
               ),
               TextFormField(
                 decoration: InputDecoration(
+                  labelText: 'Phone',
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                  ),
+                ),
+
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              TextFormField(
+                decoration: InputDecoration(
                   labelText: 'Passsword',
                   hintStyle: TextStyle(
                     color: Colors.grey,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/Data/Services/auth_controllers.dart';
+import 'package:task_manager/screens/signin_screen.dart';
 import 'package:task_manager/screens/update_profile.dart';
 
 
@@ -11,8 +13,12 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget  {
   Widget build(BuildContext context) {
 
     return AppBar(
+      actions: [
+        IconButton(onPressed: (){Navigator.pushNamedAndRemoveUntil(context,SignInScreen.name, (predicate)=>false);AuthControllers.logOut();}, icon: Icon(Icons.logout_outlined,color: Colors.white60),)
+      ],
 
       title: Row(
+
         spacing: 5,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
             borderRadius: BorderRadiusGeometry.all(Radius.circular(8))
           )
         )),
+
         inputDecorationTheme: InputDecorationTheme(
           suffixIconColor: Colors.grey,
           hintStyle: TextStyle(
@@ -51,10 +52,15 @@ class MyApp extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
 
 
+
           ),
           fillColor: Colors.white,
 
-          errorBorder: OutlineInputBorder(),
+
+
+          errorBorder: OutlineInputBorder(
+
+          ),
 
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.green, width: 2),
